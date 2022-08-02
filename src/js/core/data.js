@@ -1,11 +1,11 @@
-const axios = require('axios');
+const axios = require("axios");
 class Data {
-    constructor(url){
-        this.url=url
-    }
-  async  get(){
-let resp=await axios.get(this.url);
-console.log(resp)
-    }
+  constructor(url) {
+    this.url = url;
+  }
+  async get() {
+    let resp = await axios.get(this.url);
+   return resp.data
+  }
 }
-export default new Data()
+export default Data;
