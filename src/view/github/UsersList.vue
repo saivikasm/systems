@@ -2,9 +2,10 @@
   <div>
     <NavBar @setSearchValue="setSearchValue" />
     <h3>Top Users</h3>
+    <b-container fluid>
     <b-row>
       <b-col v-if="!filteredItems.length">Users not found</b-col>
-      <b-col v-for="(user, index) in filteredItems" :key="index">
+      <b-col cols="2" v-for="(user, index) in filteredItems" :key="index">
         <b-img
           thumbnail
           fluid
@@ -14,11 +15,13 @@
         >
         </b-img>
 
-        <b-button @click="$router.push('/' + user.login)">
-          {{ user.login }}</b-button
+        <h6 class="cursor-pointer" @click="$router.push('/' + user.login)">
+          {{ user.login }}</h6
         >
+        <b-link :href="user.html_url" target="_blank">github</b-link>
       </b-col>
       </b-row>
+    </b-container>
       <FooterBar/>
   </div>
 </template>
@@ -53,3 +56,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.cursor-pointer{
+ cursor: pointer;
+}
+</style>
