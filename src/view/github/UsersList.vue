@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar @setSearchValue="setSearchValue" />
+    <h3>Top Users</h3>
     <b-row>
       <b-col v-if="!filteredItems.length">Users not found</b-col>
       <b-col v-for="(user, index) in filteredItems" :key="index">
@@ -18,13 +19,15 @@
         >
       </b-col>
       </b-row>
+      <FooterBar/>
   </div>
 </template>
 <script>
 import User from "@/js/core/user";
 import NavBar from "./NavBar.vue";
+import FooterBar from "./FooterBar.vue"
 export default {
-  components: { NavBar },
+  components: { NavBar,FooterBar },
   data() {
     return {
       users: [],

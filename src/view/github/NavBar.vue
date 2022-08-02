@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="lg" fixed="top" type="dark" variant="dark">
       <b-navbar-brand>Github Userboard</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -15,14 +15,9 @@
               v-model="searchValue"
               class="mr-sm-2"
               placeholder="Search"
+              @input="$emit('setSearchValue', searchValue)"
             ></b-form-input>
-            <b-button
-              size="sm"
-              class="my-2 my-sm-0"
-              type="button"
-              @click="$emit('setSearchValue', searchValue)"
-              >Search</b-button
-            >
+           
           </b-nav-form>
         </b-navbar-nav>
       </b-collapse>
