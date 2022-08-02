@@ -2,6 +2,7 @@
   <div>
     <NavBar @setSearchValue="setSearchValue" />
     <b-row>
+      <b-col v-if="!filteredItems.length">Users not found</b-col>
       <b-col v-for="(user, index) in filteredItems" :key="index">
         <b-img
           thumbnail
@@ -15,8 +16,8 @@
         <b-button @click="$router.push('/' + user.login)">
           {{ user.login }}</b-button
         >
-      </b-col></b-row
-    >
+      </b-col>
+      </b-row>
   </div>
 </template>
 <script>
