@@ -6,8 +6,8 @@
     </div>
 
     <b-img
-    width="300"
-    height="300"
+      width="300"
+      height="300"
       thumbnail
       fluid
       rounded="circle"
@@ -21,16 +21,18 @@
     </b-img>
     <div>{{ userDetails.login }}</div>
 
-    <ul>
-      <li v-for="(repo, index) in repos" :key="index">
-        <b-link :href="repo.html_url" target="_blank"
-          >Repo{{ index + 1 }}</b-link
-        >
-        star {{ repo.stargazers_count }}
+    <b-list-group>
+      <b-list-group-item
+        v-for="(repo, index) in repos"
+        :key="index"
+        class="d-flex justify-content-between align-items-center"
+      >
+        <b-link :href="repo.html_url" target="_blank"> Repo{{ index + 1 }}</b-link>
+        star {{ repo.stargazers_count }} watcher
+        {{ repo.watchers_count }}
+      </b-list-group-item>
+    </b-list-group>
 
-        watcher {{ repo.watchers_count }}
-      </li>
-    </ul>
     <FooterBar />
   </div>
 </template>
